@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Hunar Bazar</string>
+    <string name="categories_list_description">List of categories</string>
+    <string name="cardview">This is a cardview</string>
+    <string name="recyclerview_sample">This is a recyclerview sample</string>
+    <string name="categoriesMain2">Open Second Activity</string>
+    <string name="hunarbazar">Hunar Bazar</string>
+    <string name="welcome">Welcome,</string>
+    <string name="upload_product">Upload Product</string>
+    <string name="view_orders">View My Orders</string>
+    <string name="logout">Logout</string>
+    <string name="profile_picture_desc">Profile Picture</string>
+    <string name="username">Username</string>
+    <string name="seller_profile_title">Seller Profile</string>
+    <string name="label_name">Name:</string>
+    <string name="label_shop_name">Shop Name:</string>
+    <string name="label_phone">Phone:</string>
+    <string name="label_city">City:</string>
+    <string name="label_experience">Experience:</string>
+    <string name="label_categories">Categories:</string>
+</resources>

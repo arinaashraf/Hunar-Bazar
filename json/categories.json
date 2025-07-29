@@ -1,0 +1,100 @@
+{
+  "categories": {
+    "1": {
+      "id": 1,
+      "name": "Crochet & Knitting",
+      "color": "#8657c5",
+      "description": "crocheted with love",
+      "icon": "https://i.postimg.cc/xdCrycKz/7683595371678642687-128-1.png",
+      "sellers": {
+        "seller1": "Yarnful Bliss",
+        "seller2": "Crafts by Areeba",
+        "seller3": "Hook & Thread"
+      }
+    },
+    "2": {
+      "id": 2,
+      "name": "Pottery",
+      "color": "#a4c639",
+      "description": "",
+      "icon": "https://i.postimg.cc/kMtmp6LN/20175476551681812720-128.png",
+      "sellers": {
+        "seller1": "Clay Wonders",
+        "seller2": "Pottery Vibes",
+        "seller3": "Mud & More"
+      }
+    },
+    "3": {
+      "id": 3,
+      "name": "Sewing",
+      "color": "#e1ad01",
+      "description": "",
+      "icon": "https://i.postimg.cc/CRZQynNr/11069066251640236997-128.png",
+      "sellers": {
+        "seller1": "Sew Elegant",
+        "seller2": "Thread Magic",
+        "seller3": "Stitch Studio"
+      }
+    },
+    "4": {
+      "id": 4,
+      "name": "Embroidery",
+      "color": "#d5e29f",
+      "description": "",
+      "icon": "https://i.postimg.cc/cLdGCDCT/15863351331674790116-128.png",
+      "sellers": {
+        "seller1": "Needle & Art",
+        "seller2": "Embroidery Dreams",
+        "seller3": "Thread & Bloom"
+      }
+    },
+    "5": {
+      "id": 5,
+      "name": "Crafts",
+      "color": "#9874a7",
+      "description": "",
+      "icon": "https://i.postimg.cc/L6tMHd9n/15057297961679405249-128.png",
+      "sellers": {
+        "seller1": "Craftaholic Studio",
+        "seller2": "DIY Queen",
+        "seller3": "Artisan Touch"
+      }
+    },
+    "6": {
+      "id": 6,
+      "name": "Wood Work",
+      "color": "#d8bfd8",
+      "description": "",
+      "icon": "https://i.postimg.cc/zbYMFDTt/carving.png",
+      "sellers": {
+        "seller1": "Wood & Wonders",
+        "seller2": "Carve & Craft",
+        "seller3": "Rustic Roots"
+      }
+    },
+    "7": {
+      "id": 7,
+      "name": "Decoration",
+      "color": "#bb9351",
+      "description": "",
+      "icon": "https://i.postimg.cc/V5RTX8vg/garland.png",
+      "sellers": {
+        "seller1": "Decor Nest",
+        "seller2": "Aesthetic Vibes",
+        "seller3": "Pretty Pieces"
+      }
+    },
+    "8": {
+      "id": 8,
+      "name": "Jewelry",
+      "color": "#ffb6c1",
+      "description": "",
+      "icon": "https://i.postimg.cc/tnXM8rSF/jewelary.png",
+      "sellers": {
+        "seller1": "GemSpark",
+        "seller2": "Bead Haven",
+        "seller3": "Shiny Things"
+      }
+    }
+  }
+}
