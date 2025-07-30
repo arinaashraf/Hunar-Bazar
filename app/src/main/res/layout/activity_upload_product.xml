@@ -10,6 +10,7 @@
     <LinearLayout
         android:orientation="vertical"
         android:padding="24dp"
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -24,6 +25,8 @@
             android:contentDescription="Back"
             android:layout_marginBottom="24dp"
             android:tint="@color/white" />
+
+
 
         <EditText
             android:id="@+id/productName"
@@ -48,6 +51,18 @@
             android:fontFamily="sans-serif-medium"
             android:background="@drawable/rounded_white_box"
             android:layout_marginBottom="16dp" />
+
+        <EditText
+            android:id="@+id/productDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textUri"
+            android:hint="Enter product description"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif-medium"
+            android:background="@drawable/rounded_white_box"
+            android:layout_marginBottom="16dp"/>
 
         <EditText
             android:id="@+id/price"
@@ -84,6 +99,7 @@
             android:fontFamily="sans-serif-medium"
             android:background="@drawable/rounded_white_box"
             android:layout_marginBottom="16dp" />
+
 
         <Spinner
             android:id="@+id/categorySpinner"

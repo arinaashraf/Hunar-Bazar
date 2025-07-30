@@ -19,6 +19,7 @@ import com.google.firebase.database.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 
 public class CheckoutActivity extends AppCompatActivity {
 
@@ -43,7 +44,6 @@ public class CheckoutActivity extends AppCompatActivity {
         setContentView(R.layout.activity_checkout);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        // Bind views
         etName = findViewById(R.id.etName);
         etPhone = findViewById(R.id.etPhone);
         etAddress = findViewById(R.id.etAddress);
@@ -88,6 +88,17 @@ public class CheckoutActivity extends AppCompatActivity {
             orderData.put("timestamp", System.currentTimeMillis());
             orderData.put("paymentMethod", "Cash on Delivery");
 
+
+            HashSet<String> sellerIds = new HashSet<>();
+            for (Product p : cartItems) {
+                sellerIds.add(p.getSellerId());
+            }
+
+            if (sellerIds.size() == 1) {
+                orderData.put("sellerId", sellerIds.iterator().next());
+            }
+            orderData.put("buyerId", user.getUid());
+
             orderRef.child(orderId).setValue(orderData).addOnSuccessListener(unused -> {
                 for (Product p : cartItems) {
                     orderRef.child(orderId).child("items")
@@ -100,6 +111,7 @@ public class CheckoutActivity extends AppCompatActivity {
                 finish();
             });
         });
+
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.example.hunarbazar7.activities;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -44,19 +45,43 @@ public class SellerOrdersActivity extends AppCompatActivity {
         orderRef = FirebaseDatabase.getInstance().getReference("orders");
 
         fetchSellerOrders();
+
+
     }
 
     private void fetchSellerOrders() {
-        orderRef.orderByChild("sellerId").equalTo(sellerUid)
-                .addListenerForSingleValueEvent(new ValueEventListener() {
+        orderRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         orderList.clear();
                         for (DataSnapshot orderSnap : snapshot.getChildren()) {
-                            Order order = orderSnap.getValue(Order.class);
-                            if (order != null) {
-                                orderList.add(order);
+                            String orderId = orderSnap.getKey();
+                            String status = orderSnap.child("status").getValue(String.class);
+
+                            DataSnapshot itemsSnapshot = orderSnap.child("items");
+                            for (DataSnapshot itemSnap : itemsSnapshot.getChildren()) {
+                                String productSellerId = itemSnap.child("sellerId").getValue(String.class);
+
+                                if (sellerUid.equals(productSellerId)) {
+
+                                    String name = itemSnap.child("name").getValue(String.class);
+                                    String image = itemSnap.child("image").getValue(String.class);
+                                    Object priceObj = itemSnap.child("price").getValue();
+                                    String price = priceObj != null ? String.valueOf(priceObj) : "0";
+
+
+                                    Order order = new Order();
+                                    order.setOrderId(orderId);
+                                    order.setName(name);
+                                    order.setImageUrl(image);
+                                    order.setPrice(price);
+                                    order.setStatus(status);
+                                    order.setSellerId(productSellerId);
+
+                                    orderList.add(order);
+                                }
                             }
+                            Log.d("ORDER_FETCH", orderSnap.toString());
                         }
 
                         if (orderList.isEmpty()) {
@@ -70,8 +95,9 @@ public class SellerOrdersActivity extends AppCompatActivity {
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
-                        // Optional: Handle error
                     }
-                });
+
+
+        });
     }
 }

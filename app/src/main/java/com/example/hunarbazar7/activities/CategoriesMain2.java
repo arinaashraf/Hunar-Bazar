@@ -64,7 +64,7 @@ public class CategoriesMain2 extends AppCompatActivity {
                         .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
                 return true;
             } else if (itemId == R.id.profile) {
-                startActivity(new Intent(CategoriesMain2.this, ProfileActivity.class)
+                startActivity(new Intent(CategoriesMain2.this, RoleCheckActivity.class)
                         .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
                 return true;
             }

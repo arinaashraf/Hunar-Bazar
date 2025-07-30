@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, CartActivity.class));
                 return true;
             } else if (itemId == R.id.profile) {
-                startActivity(new Intent(MainActivity.this, ProfileActivity.class));
+                startActivity(new Intent(MainActivity.this, RoleCheckActivity.class));
                 return true;
             }
 
@@ -118,13 +118,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
-//    void initSlider(){
-//        binding.carousel.addData(new CarouselItem("https://i.pinimg.com/736x/0f/5d/ad/0f5dadbc453d5709e35e87350e6cbf0d.jpg", ""));
-//        binding.carousel.addData(new CarouselItem("https://i.pinimg.com/736x/d6/82/bc/d682bca2c3afe6136cae5bd1634d283c.jpg", "Jewelry"));
-//        binding.carousel.addData(new CarouselItem("https://i.pinimg.com/736x/06/8d/43/068d433baf4cfc9d47de0fcdcfbfde3d.jpg", "Mini Canvas Painting"));
-//        binding.carousel.addData(new CarouselItem("https://i.pinimg.com/736x/05/a0/34/05a0345f643b8355d231cb8f79859bca.jpg", "Crochet Scrunchies"));
-//    }
 
     void initSliderFromDiscountedProducts() {
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("products");

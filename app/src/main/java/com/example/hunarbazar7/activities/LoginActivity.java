@@ -30,6 +30,14 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("test");
+        ref.setValue("Connected").addOnSuccessListener(aVoid ->
+                Toast.makeText(this, "Connected to Firebase!", Toast.LENGTH_SHORT).show()
+        ).addOnFailureListener(e ->
+                Toast.makeText(this, "Failed: " + e.getMessage(), Toast.LENGTH_SHORT).show()
+        );
+
+
         emailEdit = findViewById(R.id.email);
         passwordEdit = findViewById(R.id.password);
         loginBtn = findViewById(R.id.loginBtn);
@@ -47,11 +55,10 @@ public class LoginActivity extends AppCompatActivity {
                             DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("users").child(uid);
 
                             userRef.get().addOnSuccessListener(snapshot -> {
-                                String role = snapshot.child("role").getValue(String.class);
-
                                 startActivity(new Intent(LoginActivity.this, RoleCheckActivity.class));
-
                                 finish();
+                            }).addOnFailureListener(e -> {
+                                Toast.makeText(this, "Database read failed: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                             });
 
                         } else {

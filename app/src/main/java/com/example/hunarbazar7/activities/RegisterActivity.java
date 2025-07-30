@@ -63,7 +63,7 @@ public class RegisterActivity extends AppCompatActivity {
                             FirebaseDatabase.getInstance().getReference("users")
                                     .child(uid)
                                     .setValue(userData)
-                                    .addOnSuccessListener(unused -> {
+                                    .addOnCompleteListener(uploadTask -> {
                                         Toast.makeText(this, "Registered!", Toast.LENGTH_SHORT).show();
                                         startActivity(new Intent(RegisterActivity.this, RoleCheckActivity.class));
                                         finish();

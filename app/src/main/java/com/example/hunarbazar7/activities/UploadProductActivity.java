@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.hunarbazar7.R;
 import com.example.hunarbazar7.model.Category;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -28,7 +29,7 @@ import java.util.Map;
 
 public class UploadProductActivity extends AppCompatActivity {
 
-    EditText nameInput, imageInput, priceInput, discountInput, stockInput, categoryIdInput;
+    EditText nameInput, imageInput, priceInput, discountInput, stockInput, categoryIdInput, descriptionInput;
     Button uploadButton;
     Spinner categorySpinner;
     ArrayList<Category> categoryList;
@@ -51,6 +52,7 @@ public class UploadProductActivity extends AppCompatActivity {
         discountInput = findViewById(R.id.discount);
         stockInput = findViewById(R.id.stock);
         uploadButton = findViewById(R.id.uploadButton);
+        descriptionInput = findViewById(R.id.productDescription);
 
         categorySpinner = findViewById(R.id.categorySpinner);
         categoryList = new ArrayList<>();
@@ -92,15 +94,21 @@ public class UploadProductActivity extends AppCompatActivity {
         uploadButton.setOnClickListener(v -> {
             String name = nameInput.getText().toString();
             String image = imageInput.getText().toString();
+            String description = descriptionInput.getText().toString();
             double price = Double.parseDouble(priceInput.getText().toString());
             double discount = Double.parseDouble(discountInput.getText().toString());
             int stock = Integer.parseInt(stockInput.getText().toString());
             int categoryId = selectedCategoryId;
             int id = (int) (System.currentTimeMillis() / 1000);
 
+            String sellerId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+
+
             Map<String, Object> product = new HashMap<>();
             product.put("name", name);
             product.put("image", image);
+            product.put("description", description);
             product.put("price", price);
             product.put("discount", discount);
             product.put("stock", stock);
@@ -108,6 +116,7 @@ public class UploadProductActivity extends AppCompatActivity {
             product.put("id", id);
             product.put("quantity", 1);
             product.put("status", "available");
+            product.put("sellerId", sellerId);
 
             FirebaseDatabase.getInstance().getReference("products")
                     .push()

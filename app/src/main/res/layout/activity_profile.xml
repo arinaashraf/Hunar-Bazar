@@ -10,7 +10,6 @@
     android:padding="16dp"
     tools:context=".activities.ProfileActivity">
 
-        <!-- Profile Card -->
         <androidx.cardview.widget.CardView
             android:id="@+id/profileCard"
             android:layout_width="0dp"
@@ -135,7 +134,7 @@
         </LinearLayout>
 
 
-        <!-- Buyer Button -->
+
         <Button
             android:id="@+id/viewOrdersBtn"
             android:layout_width="0dp"
@@ -144,63 +143,21 @@
             android:backgroundTint="@color/blue"
             android:textColor="@color/white"
             android:text="@string/view_orders"
-            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/sellerDetailsCard"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- Seller Buttons -->
-        <Button
-            android:id="@+id/btnUploadProduct"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="@color/blue"
-            android:textColor="@color/white"
-            android:text="@string/upload_product"
-            android:visibility="gone"
-            app:layout_constraintTop_toBottomOf="@id/viewOrdersBtn"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
 
-        <Button
-            android:id="@+id/btnViewMyProducts"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:backgroundTint="@color/blue"
-            android:textColor="@color/white"
-            android:text="View My Products"
-            android:visibility="gone"
-            app:layout_constraintTop_toBottomOf="@id/btnUploadProduct"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        <Button
-            android:id="@+id/btnSellerOrders"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:backgroundTint="@color/blue"
-            android:textColor="@color/white"
-            android:text="View Orders"
-            android:visibility="gone"
-            app:layout_constraintTop_toBottomOf="@id/btnViewMyProducts"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-
-        <!-- Logout -->
         <Button
             android:id="@+id/logoutBtn"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:backgroundTint="@color/blue"
             android:text="@string/logout"
             android:textColor="@color/white"
             android:textSize="16sp"
-            app:layout_constraintTop_toBottomOf="@id/btnSellerOrders"
+            app:layout_constraintTop_toBottomOf="@id/viewOrdersBtn"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 

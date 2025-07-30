@@ -44,10 +44,28 @@ public class BuyerOrdersActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot snapshot) {
                 orderList.clear();
                 for (DataSnapshot orderSnap : snapshot.getChildren()) {
-                    Order order = orderSnap.getValue(Order.class);
-                    orderList.add(order);
+                    String orderId = orderSnap.getKey();
+                    String status = orderSnap.child("status").getValue(String.class);
+
+                    DataSnapshot itemsSnapshot = orderSnap.child("items");
+                    for (DataSnapshot itemSnap : itemsSnapshot.getChildren()) {
+                        String name = itemSnap.child("name").getValue(String.class);
+                        String image = itemSnap.child("image").getValue(String.class);
+                        String price = String.valueOf(itemSnap.child("price").getValue());
+                        String sellerId = itemSnap.child("sellerId").getValue(String.class);
+
+                        Order order = new Order();
+                        order.setOrderId(orderId);
+                        order.setName(name);
+                        order.setImageUrl(image);
+                        order.setPrice(price);
+                        order.setStatus(status);
+                        order.setSellerId(sellerId);
+
+                        orderList.add(order);
+                    }
                 }
-                orderList.add(new Order("Test Product", "Test Seller", "https://i.pinimg.com/736x/b1/18/4a/b1184a83466ac17556a5737e658ec5ce.jpg", "999", "Pending"));
+
                 adapter.notifyDataSetChanged();
             }
 

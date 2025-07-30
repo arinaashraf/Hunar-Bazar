@@ -58,7 +58,7 @@ public class CartActivity extends AppCompatActivity {
             } else if (itemId == R.id.cart) {
                 return true;
             } else if (itemId == R.id.profile) {
-                startActivity(new Intent(CartActivity.this, ProfileActivity.class));
+                startActivity(new Intent(CartActivity.this, RoleCheckActivity.class));
                 return true;
             }
 

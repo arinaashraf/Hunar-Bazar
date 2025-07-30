@@ -70,7 +70,7 @@ public class SellerProfileActivity extends AppCompatActivity {
 
             userRef.updateChildren(sellerData).addOnSuccessListener(unused -> {
                 Toast.makeText(this, "Seller Profile Saved", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(this, ProfileActivity.class));
+                startActivity(new Intent(this, SellerProfileViewActivity.class));
                 finish();
             });
         });

@@ -94,8 +94,12 @@ public class ProductDetail extends AppCompatActivity {
                 0,
                 10,
                 id,
-                1
+                1,
+                ""
         );
+
+        currentProduct.setSellerId(FirebaseAuth.getInstance().getUid());
+
 
         getSupportActionBar().setTitle(name);
 

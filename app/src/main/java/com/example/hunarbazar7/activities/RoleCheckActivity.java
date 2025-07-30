@@ -62,16 +62,12 @@ public class RoleCheckActivity extends AppCompatActivity {
                 } else if (role.equals("seller")) {
                     String shopName = snapshot.child("shopName").getValue(String.class);
                     if (shopName != null && !shopName.isEmpty()) {
-                        goTo(ProfileActivity.class);
+                        goTo(SellerProfileViewActivity.class);
                     } else {
                         goTo(SellerProfileActivity.class);
                     }
-                } else {
-                    Toast.makeText(RoleCheckActivity.this, "Unknown role", Toast.LENGTH_SHORT).show();
-                    FirebaseAuth.getInstance().signOut();
-                    startActivity(new Intent(RoleCheckActivity.this, LoginActivity.class));
-                    finish();
                 }
+
             }
 
             @Override

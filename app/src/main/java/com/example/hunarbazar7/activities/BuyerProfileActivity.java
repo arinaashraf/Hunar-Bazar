@@ -58,7 +58,7 @@ public class BuyerProfileActivity extends AppCompatActivity {
 
             userRef.updateChildren(map).addOnSuccessListener(aVoid -> {
                 Toast.makeText(this, "Profile Saved", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(this, CartActivity.class));
+                startActivity(new Intent(this, ProfileActivity.class));
                 finish();
             });
         });
